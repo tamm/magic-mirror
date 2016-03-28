@@ -3,5 +3,8 @@ html
 		meta(name="apple-mobile-web-app-capable", content="yes")
 		link(rel="stylesheet", href="static/css/base.css")
 	body
-		h1
-		|	Hello World! :)
+		h1|Hello World! :)
+		p
+			span|Days since last accident 
+			span= timeSinceLastDate
+		a(href="update")|Update
