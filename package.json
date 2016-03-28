@@ -1,0 +1,23 @@
+{
+  "name": "magic-mirror",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamm/magic-mirror.git"
+  },
+  "author": "Tamm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tamm/magic-mirror/issues"
+  },
+  "homepage": "https://github.com/tamm/magic-mirror#readme"
+}
