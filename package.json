@@ -13,7 +13,11 @@
     "start": "node server.js"
   },
   "description": "",
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp-nodemon": "^2.0.6",
+    "gulp-plumber": "^1.1.0",
+    "gulp-watch": "^4.3.5"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tamm/magic-mirror.git"

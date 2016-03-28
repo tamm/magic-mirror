@@ -2,7 +2,10 @@
 // include the required packages. 
 var gulp = require('gulp');
 var stylus = require('gulp-stylus');
- 
+var watch = require('gulp-watch');
+var plumber = require('gulp-plumber');
+var nodemon = require('gulp-nodemon');
+
  
 // include, if you want to work with sourcemaps 
 // var sourcemaps = require('gulp-sourcemaps');
@@ -23,7 +26,24 @@ gulp.task('default', function () {
     }))
     .pipe(gulp.dest('./static/css'));
 });
- 
+
+gulp.task('watch', function (cb) {
+  nodemon({
+    script: 'server.js'
+  , ext: 'js html'
+  , env: { 'NODE_ENV': 'development' }
+  })
+  return gulp.src('./stylus/base.styl')
+    .pipe(plumber({errorHandler: function (err) {
+      console.log(err);
+    }}))
+    .pipe(watch('./stylus/**/*.styl'))
+    .pipe(stylus({
+      compress: true
+    }))
+    .pipe(gulp.dest('./static/css'));
+});
+
  
 // // Set linenos 
 // gulp.task('linenos', function () {
