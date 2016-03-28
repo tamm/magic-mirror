@@ -8,13 +8,16 @@ app.set('view engine', 'jade');
 app.get('/', function (req, res) {
 	var latestDate = new Date();
 
-	var log = fs.readFileSync('static/log.txt','utf8');
-    var lines = log.trim().split('\n');
-    var lastLine = lines.slice(-1)[0];
-
-    if (lines.length > 0) {
-    	latestDate = new Date(lastLine);
-    }
+	try {
+		var log = fs.readFileSync('static/log.txt','utf8');
+    	var lines = log.trim().split('\n');
+    	var lastLine = lines.slice(-1)[0];
+	    if (lines.length > 0) {
+	    	latestDate = new Date(lastLine);
+	    }
+	} catch (error) {
+		console.log('no log file found');
+	}
 
     var	timeSinceLastDate = Math.round((new Date().getTime() - latestDate.getTime()) / (1000*60*60*24));
 
