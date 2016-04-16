@@ -4,11 +4,14 @@ html
 		meta(http-equiv="refresh", content="3600; URL=/")
 		link(rel="stylesheet", href="static/css/base.css")
 	body
-		p|Days since last accident 
+		p|Days since last change 
 		p.bigNumbers= timeSinceLastDate
 		p
 			a.button(href="update")|Update
 			
 		p|Weather Göteborg
+		p
+			img.weather(src="http://www.yr.no/place/Sweden/V%C3%A4stra_G%C3%B6taland/Partille/avansert_meteogram.png")
+		p|Weather Partille
 		p
 			img.weather(src="http://www.yr.no/sted/Sverige/V%C3%A4stra_G%C3%B6taland/G%C3%B6teborg/avansert_meteogram.png")
