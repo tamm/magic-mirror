@@ -6,6 +6,12 @@ app.set('views', './views');
 app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
+	res.render('index', {
+		'timeSinceLastDate': 0
+	});
+});
+
+app.get('/days', function (req, res) {
 	var latestDate = new Date();
 
 	try {
@@ -21,19 +27,25 @@ app.get('/', function (req, res) {
 
     var	timeSinceLastDate = Math.round((new Date().getTime() - latestDate.getTime()) / (1000*60*60*24));
 
-	res.render('index', {
-		'latestDate': latestDate,
-		'timeSinceLastDate': timeSinceLastDate
+	res.send({
+		days: timeSinceLastDate,
+		date: latestDate
 	});
 });
 
 app.get('/update', function (req, res) {
-	fs.appendFile('static/log.txt', new Date().toISOString() + '\n', function (err) {
-
+	var date = new Date().toISOString()
+	fs.appendFile('static/log.txt', date + '\n', function (err) {
+		if (err) {
+			res.status(500).send({error: 'Unable to write to log'});
+		} else {
+			res.send({
+				days: 0,
+				date: date
+			});
+		}
 	});
 
-
-	res.redirect('/');
 });
 
 app.use('/static', express.static('static'));
