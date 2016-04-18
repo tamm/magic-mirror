@@ -34,10 +34,9 @@ gulp.task('watch', function (cb) {
 
 gulp.task('uglify', function() {
   return gulp.src([
-    'js/*.js',
-    'node_modules/angular/angular.js'
+    'js/*.js'
     ])
-    .pipe(uglify({mangle: false}))
+    // .pipe(uglify({mangle: false}))
     .pipe(gulp.dest('./static/js'));
 });
  
