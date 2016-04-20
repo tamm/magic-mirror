@@ -25,11 +25,10 @@ app.get('/days', function (req, res) {
 		console.log('no log file found');
 	}
 
-	latestDate.setHours(0,0,0);
+	latestDate.setHours(23,59,0);
 	var now = new Date();
-	now.setHours(0,0,0);
-	
-    var	timeSinceLastDate = Math.round((now.getTime() - latestDate.getTime()) / (1000*60*60*24));
+
+    var	timeSinceLastDate = Math.ceil((now.getTime() - latestDate.getTime()) / (1000*60*60*24));
 
 	res.send({
 		days: timeSinceLastDate,
