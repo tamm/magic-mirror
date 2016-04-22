@@ -8,7 +8,9 @@ var nodemon = require('gulp-nodemon');
 var uglify = require('gulp-uglify');
  
 gulp.task('stylus', function () {
-  return gulp.src('./stylus/base.styl')
+  return gulp.src([
+    './stylus/base.styl'
+    ])
     .pipe(stylus({
       compress: true
     }))

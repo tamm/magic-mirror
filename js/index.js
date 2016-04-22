@@ -1,4 +1,4 @@
-var app = angular.module('magicMirror', []);
+var app = angular.module('magicMirror', ['ngMaterial']);
 
 app.controller("dayCounter", ["$scope", "$http", function($scope, $http) {
     $scope.count = 0;
