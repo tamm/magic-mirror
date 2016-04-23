@@ -9,8 +9,10 @@ body
 	font-weight 100
 	line-height 1.1em
 	background grey
-	padding .5em
-	display inline-block
+	padding .5em 0
+	display block
+	width 100%
+	text-align center
 	
 .button
 	border none
@@ -18,10 +20,18 @@ body
 	background grey
 	padding .5em
 	color white
-	font-style italic
 	text-decoration none
+	font-size 1.2em
+	
+	&.full-width
+		width 100%
+		display block
 	
 .weather
 	width 100%
 	height auto
 	display block
+
+.day-counter
+	display inline-block
+	padding .5em

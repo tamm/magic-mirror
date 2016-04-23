@@ -1,6 +1,6 @@
 html
 	head
-  		meta(name="viewport", content="width=device-width, initial-scale=1")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
 		meta(name="apple-mobile-web-app-capable", content="yes")
 		meta(http-equiv="refresh", content="3600; URL=/")
 		link(rel="stylesheet", href="static/css/base.css")
@@ -8,11 +8,14 @@ html
 		script(src="/static/js/index.js")
 
 	body(ng-app="magicMirror")
-		div(ng-controller="dayCounter")
-			p|Days since last change 
-			p.bigNumbers|{{count}}
-			p
-				button.button(ng-click="updateDate()")|Update
+		div.day-counters(ng-controller="dayCounter")
+			span(ng-repeat="(dateId, count) in counts track by $index")
+				div.day-counter
+					span|Days since last reset 
+					p.bigNumbers|{{count}}
+					p
+						button.button.full-width(ng-click="updateDate(dateId)")|Reset
+			button.button(ng-click="addDate()")|Add Date 
 			
 		p|Weather Göteborg
 		p
