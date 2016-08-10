@@ -11,16 +11,16 @@ html
 		div.day-counters(ng-controller="dayCounter")
 			span(ng-repeat="(dateId, count) in counts track by $index")
 				div.day-counter
-					span|Days since last reset 
 					p.bigNumbers|{{count}}
 					p
 						button.button.full-width(ng-click="updateDate(dateId)")|Reset
 			button.button(ng-click="addDate()")|Add Date 
 			
-		p|Weather Göteborg
+		iframe(src="https://calendar.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=2&bgcolor=%23000000&src=tamm.sjodin%40gmail.com&color=%23f64f00&src=tamm.sjodin%40gmail.com&color=%2342104A&ctz=Europe%2FStockholm", style="border-width:0", width="753", height="275", frameborder="0", scrolling="no")
 		p
 			img.weather(src="http://www.yr.no/sted/Sverige/V%C3%A4stra_G%C3%B6taland/G%C3%B6teborg/avansert_meteogram.png")
 
-		p|Weather Partille
 		p
 			img.weather(src="http://www.yr.no/place/Sweden/V%C3%A4stra_G%C3%B6taland/Partille/avansert_meteogram.png")
+
+
